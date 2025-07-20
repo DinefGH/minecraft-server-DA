@@ -7,7 +7,6 @@
 * [Environment Configuration](#environment-configuration)
 * [Useful Links](#useful-links)
 
-
 ## Introduction
 
 Welcome to the Minecraft Docker Server setup! This project provides an easy way to run a Minecraft Java Edition server using Docker Compose with the itzg/minecraft-server image. It includes persistent data storage, configurable server options via a .env file, and simple start/stop commands.

@@ -2,15 +2,19 @@ version: "3.8"
 
 services:
   mc-server:
-    image: itzg/minecraft-server
-    container_name: mc
+    build: .
+    container_name: minecraft-custom
     ports:
-      - "${MC_PORT}:25565" 
-    env_file:
-      - .env
+      - "${MC_PORT}:25565"
+    environment:
+      EULA: "${EULA}"
+      MEMORY: "${MEMORY}"
+      ENABLE_COMMAND_BLOCK: "${ENABLE_COMMAND_BLOCK}"
+      DIFFICULTY: "${DIFFICULTY}"
+      MAX_PLAYERS: "${MAX_PLAYERS}"
     volumes:
-      - mc-data:/data
-    restart: unless-stopped
+      - mc-data:/app
+    restart: on-failure
 
 volumes:
   mc-data:
