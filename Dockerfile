@@ -5,21 +5,12 @@ WORKDIR /app
 # Copy server JAR
 COPY server/server.jar /app/server.jar
 
-# Environment defaults (can be overridden by docker-compose)
+# Accept EULA and setup defaults
 ENV EULA=true
 ENV MEMORY=2G
-ENV ENABLE_COMMAND_BLOCK=false
-ENV DIFFICULTY=easy
-ENV MAX_PLAYERS=20
 
-# Expose Minecraft default port
+# Expose Minecraft port
 EXPOSE 25565
 
-# Start Minecraft with passed environment vars
-CMD java \
-  -Xmx${MEMORY} -Xms${MEMORY} \
-  -jar server.jar minecraft_server.1.21.8.jar nogui \
-  --eula=${EULA} \
-  --enable-command-block=${ENABLE_COMMAND_BLOCK} \
-  --difficulty=${DIFFICULTY} \
-  --max-players=${MAX_PLAYERS}
+# Start server
+CMD java -Xmx${MEMORY} -Xms${MEMORY} -jar server.jar nogui
