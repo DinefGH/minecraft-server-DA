@@ -1,23 +1,35 @@
 # Minecraft Server with Docker Compose
 
 * [Introduction](#introduction)
+* [Folder structure](#folder-structure)
 * [Prerequisites](#prerequisites)
 * [Quickstart](#quickstart)
 * [Usage](#usage)
-* [Environment Configuration](#environment-configuration)
 * [Useful Links](#useful-links)
 
 ## Introduction
 
-Welcome to the Minecraft Docker Server setup! This project provides an easy way to run a Minecraft Java Edition server using Docker Compose with the itzg/minecraft-server image. It includes persistent data storage, configurable server options via a .env file, and simple start/stop commands.
+Welcome to the Minecraft Docker Server setup! This project provides an easy way to run a Minecraft Java Edition server using Docker Compose. It includes persistent data storage, configurable server options via a .env file, and a custom Dockerfile to build your own Minecraft server image.
+
+## Folder structure
+
+```bash
+minecraft-docker-server/
+├── Dockerfile
+├── docker-compose.yaml
+├── .example-env
+├── Minecraft Server Checkliste.pdf
+├── README.md
+└── server/
+    └── server.jar
+```
 
 ## Prerequisites
 
 Before you begin, ensure the following tools are installed on your system:
 
-Git (to clone the repository)
-
-Docker & Docker Compose (to run the server container)
+* Git (to clone the repository)
+* Docker & Docker Compose (to run the server container)
 
 ## Quickstart
 
@@ -39,7 +51,7 @@ Docker & Docker Compose (to run the server container)
 3. Start the Server
 
     ```bash
-    docker compose up -d
+    docker compose up -d --build
     ```
 
 4. Connect to the Server
@@ -57,7 +69,7 @@ Docker & Docker Compose (to run the server container)
 1. View Logs
 
     ```bash
-    docker logs -f mc
+    docker logs -f minecraft-custom
     ```
 
 2. Restart the Server
@@ -72,42 +84,15 @@ Docker & Docker Compose (to run the server container)
     docker compose down
     ```
 
-4. Update the Server
+4. Rebuild and Update the server
 
     ```bash
-    docker compose pull
+    docker compose build --no-cache && docker compose up -d
     ```
-
-## Environment Configuration
-
-All configuration is managed through the .env file. Below is an example:
-
-```bash
-# Required to start the server
-EULA=TRUE
-
-# Server memory settings
-MEMORY=2G
-
-# Minecraft game settings
-ENABLE_COMMAND_BLOCK=true
-DIFFICULTY=normal
-MAX_PLAYERS=10
-MOTD=Welcome to my Minecraft Docker server!
-
-# Port to expose Minecraft on your host
-MC_PORT=8888
-```
-
-To apply changes:
-
-```bash
-docker compose down && docker compose up -d
-```
 
 ## Useful Links
 
-* [itzg/minecraft-server on Docker Hub](https://hub.docker.com/r/itzg/minecraft-server)
+* [Docker Compose Documentation](https://docs.docker.com/compose/)
 * [Docker Compose Documentation](https://docs.docker.com/compose/)
 * [Minecraft Java Edition Server Setup Guide](https://minecraft.wiki/w/Tutorials/Setting_up_a_server)
 
