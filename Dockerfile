@@ -18,7 +18,7 @@ EXPOSE 25565
 # Start Minecraft with passed environment vars
 CMD java \
   -Xmx${MEMORY} -Xms${MEMORY} \
-  -jar server.jar nogui \
+  -jar server.jar minecraft_server.1.21.8.jar nogui \
   --eula=${EULA} \
   --enable-command-block=${ENABLE_COMMAND_BLOCK} \
   --difficulty=${DIFFICULTY} \
