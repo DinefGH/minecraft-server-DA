@@ -19,9 +19,8 @@ minecraft-docker-server/
 ├── docker-compose.yaml
 ├── .example-env
 ├── Minecraft Server Checkliste.pdf
-├── README.md
-└── server/
-    └── server.jar
+└── README.md
+
 ```
 
 ## Prerequisites
