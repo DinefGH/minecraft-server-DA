@@ -2,8 +2,7 @@ FROM eclipse-temurin:21-jdk-alpine
 
 WORKDIR /app
 
-# Copy server JAR
-COPY server/minecraft_server.1.21.8.jar /app/minecraft_server.1.21.8.jar
+RUN curl -o /app/server/minecraft_server.1.21.8.jar https://piston-data.mojang.com/v1/objects/6bce4ef400e4efaa63a13d5e6f6b500be969ef81/server.jar
 
 # Accept EULA and setup defaults
 ENV EULA=true
