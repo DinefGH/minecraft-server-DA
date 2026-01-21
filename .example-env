@@ -1,0 +1,13 @@
+# Accept the Minecraft EULA (must be TRUE or server won't start)
+EULA=TRUE
+
+# Java memory allocation (e.g., 2G, 4G)
+MEMORY=2G
+
+# Minecraft gameplay settings
+ENABLE_COMMAND_BLOCK=true
+DIFFICULTY=normal
+MAX_PLAYERS=10
+
+# Port used on the host machine (must match docker-compose.yaml)
+MC_PORT=1234
